@@ -1,0 +1,274 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root {
+    --main-color: #4A694D;
+    --additional-color: #2C3A47;
+    --additional-color-2: #fff;
+    --black: #000;
+    --positionThumb: 50%;
+}
+
+body {
+    font-size: 16px;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+}
+
+header .images .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+header .images .slider .drag-line {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+header .images .slider .drag-line span {
+    height: 55px;
+    width: 60px;
+    border: 2px solid var(--black);
+    background: var(--main-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    display: flex;
+}
+
+header .images .slider .drag-line span .box {
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+header .images .slider .drag-line span .box:first-of-type img {
+    transform: rotate(180deg);
+}
+
+header .images .slider .drag-line span .box img {
+    width: 50%;
+}
+
+header .images .slider .drag-line span .box img::selection {
+    background: transparent;
+}
+
+header .images .slider .drag-line::before,
+header .images .slider .drag-line::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: calc(50% - 27.5px);
+    background: var(--black);
+}
+
+header .images .slider .drag-line::before {
+    top: 0;
+}
+
+header .images .slider .drag-line::after {
+    bottom: 0;
+}
+
+header .images .slider input {
+    width: 100%;
+    outline: none;
+    background: none;
+    -webkit-appearance: none;
+}
+
+header .images .slider input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 100vh;
+    width: 8px;
+    cursor: col-resize;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: var(--positionThumb);
+    transform: translateX(-50%);
+}
+
+header .images #slider-photo-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    background: url("img/13093035_rynek-starego-miasta--warszawa.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+header .images #slider-photo-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -3;
+    background: url("img/Old_Town_Warsaw_waf-2012-1501-31\(1945\).jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    transition: 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Main nav */
+header nav {
+    padding: 60px 0 30px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav a {
+    text-decoration: none;
+}
+
+header nav .menu a {
+    color: var(--black);
+    position: relative;
+}
+
+header nav .menu a::before,
+header nav a h2::before,
+header section .info-source a::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 1px;
+    transition: top 250ms, width 250ms 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: -1;
+}
+
+header nav .menu a::before,
+header nav a h2::before {
+    background: var(--black);
+}
+
+header nav .menu a:hover::before,
+header nav a h2:hover::before,
+header section .info-source a:hover::before {
+    top: calc(100% + 3px);
+    width: 100%;
+}
+
+header nav a h2 {
+    font-weight: 300;
+    font-size: 37px;
+    color: var(--black);
+    position: relative;
+}
+
+header nav a h2 span {
+    color: var(--main-color);
+}
+
+/* Header section */
+header section {
+    flex-grow: 1;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+header section .info-source {
+    position: absolute;
+    right: -185px;
+    width: 260px;
+    opacity: 0.90;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: flex;
+    padding: 12px 25px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 6;
+}
+
+.black {
+    background: var(--black);
+    bottom: 100px;
+}
+
+.black a {
+    color: var(--additional-color-2);
+}
+
+.black a::before {
+    background: var(--additional-color-2);
+}
+
+.green {
+    background: var(--main-color);
+    bottom: 30px;
+}
+
+.green a {
+    color: var(--black);
+}
+
+.green a::before {
+    background: var(--black);
+}
+
+header section .info-source:hover {
+    opacity: 0.95;
+    right: 0px;
+}
+
+header section .info-source img {
+    height: 25px;
+    width: 25px;
+}
+
+header section .info-source a {
+    text-decoration: none;
+    transform: translateY(2px);
+}
+
+/* Main */
+main {
+    height: 100vh;
+    background: var(--black);
+    width: 100%;
+}
