@@ -57,3 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.style.setProperty("--positionThumb", sliderVal + "%");
     })
 })
+
+window.addEventListener("load", function () {
+    const loader = document.querySelector("#loader");
+    loader.className += "hidden";
+    document.body.classList.remove("overflow");
+})
